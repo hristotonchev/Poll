@@ -2,8 +2,6 @@
 <?php
 use phpmailer\PHPMailer;
 
-$errorMsg = null;
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $fName = trim(htmlspecialchars($_POST['first_name']));
     $lName = trim(htmlspecialchars($_POST['last_name']));
@@ -11,8 +9,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $phone = trim(htmlspecialchars($_POST['phone']));
 }
 
-if(!empty($_POST) && isset($fName,$lName,$email,$phone) && empty($fName) || empty($lName) || empty($email) || empty($phone)){
-    $errorMsg = 'Please fill the personal data field with Valid data';
+if(!empty($_POST) && empty($fName) || empty($lName) || empty($email) || empty($phone)){
+    $errorMsg = 'Please fill the the mandatory fields';
 }
 
 $poll = array(
@@ -37,7 +35,7 @@ $poll = array(
                         'Once I was married or in a permanent relationship',
                         'Once I had children'),
 
-                array(  '4. If you have children, would you say that your relationship with your pet has changed since you’ve had kids?',
+                array(  '4. If you have children, would you say that your relationship with your pet has changed since you have had kids?',
                         'Yes, I devote less attention to my pet',
                         'Yes, I devote more attention to my pet',
                         'Yes, I think of my pet more like an animal and less like a child',
@@ -61,7 +59,6 @@ require("phpmailer/PHPMailer.php");
 
 if(!empty($_POST) && empty($errorMsg)){
 
-
     $result = '';
     $result .= "First name: ".$fName."\n";
     $result .= "Last name: ".$lName."\n";
@@ -72,8 +69,6 @@ if(!empty($_POST) && empty($errorMsg)){
     $result .= "3. At what age did you first become a pet owner? \n".$_POST['question3']."\n";
     $result .= "4. If you have children, would you say that your relationship with your pet has changed since you’ve had kids? \n".$_POST['question4']."\n";
     $result .= "5. Where does your pet sleep? \n".$_POST['question5']."\n";
-
-    var_dump($result);
 
     $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
     fwrite($myfile, $result);
@@ -92,13 +87,12 @@ if(!empty($_POST) && empty($errorMsg)){
             header("location:thankyou.php");
             exit;
         }
-    $error_message = 'Message could not be sent.';
-    $error_message = 'Mailer Error: ' . $mail->ErrorInfo;
+    $errorMsg = 'Message could not be sent.';
+    $errorMsg = 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     if(!empty($_POST) && !empty($errorMsg)){
-        echo $errorMsg;
+        echo '<h3>'.$errorMsg.'</h3>';
     }
 }
-
 
 include('template.html');
