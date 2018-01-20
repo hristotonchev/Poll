@@ -1,0 +1,97 @@
+body {
+    background-color: linen;
+}
+h1 {
+    color: maroon;
+    margin-left: 40px;
+}
+p {
+    color: red;
+}
+a {
+    color: black;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {background-color: #ade3d1; font-size: 15px; padding: 10px 10px;} /* Mint */
+.button2 {background-color: #008CBA; font-size: 15px; padding: 10px 10px;} /* Blue */
+.button3 {background-color: #B22222; font-size: 15px; padding: 10px 10px;} /* Red */
+.button4 {background-color: #000000; font-size: 15px; padding: 10x 10px; position: absolute; top: 10px; right: 20px;} /*Black*/
+
+input[type=text], select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=email], select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+label {
+    color: #008000;
+    font-weight: bold;
+    display: block;
+}
+textarea {
+    width: 50%;
+    height: 300px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+li {
+ color: green;
+}
+
+.box {
+  width: 320px;
+  height: 40px;
+  padding: 12px;
+}
+.active{ color:#313c53; background:#8be400;}
+
+.menu{float:right; width:auto; }
